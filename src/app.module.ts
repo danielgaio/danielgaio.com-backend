@@ -13,8 +13,6 @@ import { JwtStrategy } from "./auth/jwt.strategy";
 import { LocalStrategy } from "./auth/local.strategy";
 import { jwtConstants } from "./auth/constants";
 import { AuthService } from './auth/auth.service';
-import { PostsModule } from './posts/posts.module';
-import { ProjectsModule } from './projects/projects.module';
 
 @Module({
   imports: [
