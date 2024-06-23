@@ -16,12 +16,12 @@ import { AuthService } from './auth/auth.service';
 
 @Module({
   imports: [
+    ConfigModule.forRoot({isGlobal: true}),
     PassportModule,
     JwtModule.register({
       secret: jwtConstants.secret,
       signOptions: { expiresIn: "60m" },
     }),
-    ConfigModule.forRoot(),
     TypeOrmModule.forRoot({
       type: "postgres",
       host: process.env.DB_HOST,
