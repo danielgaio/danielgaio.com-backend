@@ -5,11 +5,11 @@ import { UsersService } from "./users.service";
 export class UsersController {
   constructor(private readonly usersService: UsersService) {}
 
-  @Post()
-  async create(@Body() createUserDto: { username: string; password: string }) {
-    return this.usersService.create(
-      createUserDto.username,
-      createUserDto.password
-    );
-  }
+  // @Post()
+  // async create(@Body() createUserDto: { username: string; password: string }) {
+  //   return this.usersService.create(
+  //     createUserDto.username,
+  //     createUserDto.password
+  //   );
+  // }
 }

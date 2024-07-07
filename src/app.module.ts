@@ -1,7 +1,4 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
-import { TypeOrmModule } from "@nestjs/typeorm";
 import { ConfigModule } from "@nestjs/config";
 import { UsersModule } from "./users/users.module";
 import { AuthModule } from "./auth/auth.module";
@@ -22,22 +19,12 @@ import { AuthService } from './auth/auth.service';
       secret: jwtConstants.secret,
       signOptions: { expiresIn: "60m" },
     }),
-    TypeOrmModule.forRoot({
-      type: "postgres",
-      host: process.env.DB_HOST,
-      port: +process.env.DB_PORT,
-      username: process.env.DB_USERNAME,
-      password: process.env.DB_PASSWORD,
-      database: process.env.DB_NAME,
-      entities: [__dirname + "/../**/*.entity.{js,ts}"],
-      synchronize: true,
-    }),
     UsersModule,
     AuthModule,
     PostsModule,
     ProjectsModule,
   ],
-  controllers: [AppController],
-  providers: [AppService, AuthService, LocalStrategy, JwtStrategy],
+  controllers: [],
+  providers: [AuthService, LocalStrategy, JwtStrategy],
 })
 export class AppModule {}
